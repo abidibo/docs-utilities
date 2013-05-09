@@ -1,0 +1,16 @@
+HOW TO CONNECT TO WLAN WITH WPA2 FROM COMMAND LINE
+==================================================
+
+1. Stop network manager to free wlan0
+
+  # /etc/init.d/networkmanager stop
+
+2. Make a config for wpa_supplicant
+
+  # wpa_passphrase "essid" "password" > wpaconfig
+  # wpa_supplicant -iwlan0 -cwpaconfig
+
+3. [ctrl-z] to run wpa_supplicant in background
+
+4. Get assigned an IP
+  # dhclient wlan0
